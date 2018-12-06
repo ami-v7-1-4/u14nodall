@@ -1,0 +1,28 @@
+language: node_js
+
+runtime:
+  nodePool: dynamic__x86_64__Ubuntu_14_04__c4_large
+  
+# Version number
+node_js:
+  - 6.14 #.4 
+  - 8.12 #.0 
+  - 10.13 #.0 
+  - 11.1 #.0
+
+build:
+  pre_ci_boot:
+    image_name: drydock/u14nodall
+    image_tag: master
+    pull: true
+    
+  ci:
+    - node --version
+    - docker pull shippabledocker/sample_node_pvt:ecr
+    
+integrations:
+    
+  hub:
+ #Docker integration
+    - integrationName: ship-docker
+      type: dockerRegistryLogin
