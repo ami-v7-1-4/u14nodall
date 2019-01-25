@@ -5,10 +5,10 @@ runtime:
   
 # Version number
 node_js:
-  - 6.14 #.4 
-  - 8.12 #.0 
-  - 10.13 #.0 
-  - 11.1 #.0
+  - 10.15 #.0
+  - 11.6 #.0
+  - 8.15 #.0
+  - 6.16 #.0
 
 build:
   pre_ci_boot:
@@ -18,6 +18,7 @@ build:
     
   ci:
     - node --version
+    - npm --version #6.5.0
     - docker pull shippabledocker/sample_node_pvt:ecr
     
 integrations:
